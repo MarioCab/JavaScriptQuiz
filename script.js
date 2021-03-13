@@ -64,11 +64,16 @@ function buildQuestionCard() {
 }
 
 function evaluateAnswer() {
+    var choicesEl = document.querySelector(".choices")
+}
+
+
+
+function nextQuestion() {
     var parent = document.querySelector(".choices");
     while (parent.firstChild){
         parent.removeChild(parent.firstChild);
     }
-    console.log(this.value);
        index++;
     buildQuestionCard();
 }
