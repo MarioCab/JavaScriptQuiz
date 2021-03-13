@@ -1,6 +1,5 @@
 *,*::before, *::after {
     box-sizing: border-box;
-    color: white;
 
 }
 
@@ -32,6 +31,7 @@ body {
 }
 
 .btn {
+    color: white;
     background-color: black;
     border-radius: 5px;
     padding:  5px 10px;
@@ -42,11 +42,12 @@ body {
     border-color: goldenrod;
 }
 
-.start-btn {
+.start-btn .retry-btn {
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;
 }
+
 
 .controls {
     display: flex;
@@ -73,3 +74,4 @@ justify-content: center;
 align-items: center;
 
  }
+
