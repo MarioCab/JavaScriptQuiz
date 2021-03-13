@@ -1,0 +1,15 @@
+.hide {
+    display: none;
+}
+
+body{
+    display: block;
+    margin-block: 10%;
+    text-align: center;
+}
+
+.card {
+    color: coral;
+    background-color: black;
+}
+
