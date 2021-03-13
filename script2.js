@@ -3,11 +3,12 @@ const retryButton = document.getElementById('retry-btn')
 const questionContainerEl = document.getElementById('question-container')
 const questionEl = document.getElementById('question')
 const answerButtonsEl = document.getElementById('answer-buttons')
-
-
+const highscoreEl = document.getElementById('highscore-table')
+var finalTime = 0
 var timeEl = document.querySelector(".time-display")
 var secondsLeft = 30
 var timeCard = document.getElementById("time-card")
+var isEnd = false
 
 const questions = [
     {
@@ -83,8 +84,18 @@ function startGame(){
 }
 
 function setNextQuestion(){
-    resetstate()
-    showQuestion(questions[currentQuestionIndex])
+    if (currentQuestionIndex <= questions.length -1){
+        resetstate()
+        showQuestion(questions[currentQuestionIndex])
+    } else {
+        endQuiz()
+    }}
+   
+function endQuiz(){
+    isEnd = true
+    questionContainerEl.classList.add('hide');
+    highscoreEl.classList.remove('hide');
+
 }
 
 function showQuestion(question) {
@@ -144,7 +155,6 @@ function clearStatusClass(element) {
 
 
 
-
 startButton.addEventListener("click", function setTime() {
     timeEl.classList.remove('hide');
     var timerInterval = setInterval(function(){
@@ -157,8 +167,13 @@ startButton.addEventListener("click", function setTime() {
             questionContainerEl.classList.add('hide');
             retryButton.classList.remove('hide');
             }
+            else if(isEnd){
+            finalTime = secondsLeft;
+            clearInterval(timerInterval);
+            }
 
-    }, 1000);
+
+         } , 1000);
     
     
 });
@@ -169,5 +184,3 @@ function restartQuiz(){
     window.location.reload(false);
     
     }
-
-    
