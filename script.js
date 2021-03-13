@@ -44,6 +44,7 @@ var secondsLeft = 20;
 startBtn.addEventListener("click", function () {
     startCard.setAttribute("class", "hide");
     quizCard.removeAttribute("class", "hide");
+    timeCard.removeAttribute("class", "hide");
 
     buildQuestionCard();
 });
@@ -58,16 +59,23 @@ function buildQuestionCard() {
         button.textContent = choice;
         button.setAttribute("value", choice);
         button.onclick = evaluateAnswer;
-        choicesEl.appendChild(button)
+        choicesEl.appendChild(button);
     });
 }
+
 function evaluateAnswer() {
-    console.log(this.value)
+    var parent = document.querySelector(".choices");
+    while (parent.firstChild){
+        parent.removeChild(parent.firstChild);
+    }
+    console.log(this.value);
+       index++;
+    buildQuestionCard();
 }
 
 //Code controling the time
 
-function setTime() {
+startBtn.addEventListener("click", function setTime() {
     var timerInterval = setInterval(function(){
         secondsLeft--;
         timeEl.textContent = secondsLeft + " Seconds left until quiz ends.";
@@ -76,6 +84,6 @@ function setTime() {
             clearInterval(timerInterval);
         }
     }, 1000);
-}
+});
 
 setTime();

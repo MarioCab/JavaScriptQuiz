@@ -1,15 +1,28 @@
+* {
+    color: coral;
+    background-color: black;
+}
+
 .hide {
     display: none;
 }
 
 body{
-    display: block;
-    margin-block: 10%;
     text-align: center;
 }
 
-.card {
-    color: coral;
-    background-color: black;
+
+.choices button {
+    padding: 2%;
+    margin: 2%;
+    background-color: darkblue;
 }
 
+.btn-primary {
+
+}
+
+#start-card{
+
+   
+}
