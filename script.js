@@ -8,8 +8,10 @@ var finalTime = 0
 var timeEl = document.querySelector(".time-display")
 var secondsLeft = 30
 var timeCard = document.getElementById("time-card")
+var finalScores = document.getElementById("scores")
+var storedInitials = JSON.parse(localStorage.getItem("initials"));
+var initials = storedInitials;
 var isEnd = false
-
 const questions = [
     {
         question: "Commonly used data types DO NOT include:",
@@ -89,13 +91,15 @@ function setNextQuestion(){
         showQuestion(questions[currentQuestionIndex])
     } else {
         endQuiz()
+        timeEl.classList.add('hide');
     }}
    
 function endQuiz(){
     isEnd = true
     questionContainerEl.classList.add('hide');
     highscoreEl.classList.remove('hide');
-
+    initials[initials.length] = prompt("Good job! Your final score is: " + secondsLeft + ". Please enter your initials below to record your score!");
+    localStorage.setItem("initials", JSON.stringify(initials));
 }
 
 function showQuestion(question) {
@@ -177,6 +181,8 @@ startButton.addEventListener("click", function setTime() {
     
     
 });
+
+
 
 retryButton.addEventListener('click', restartQuiz)
 

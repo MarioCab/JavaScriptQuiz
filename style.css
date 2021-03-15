@@ -75,3 +75,10 @@ align-items: center;
 
  }
 
+#highscore-table {
+font-size:large;
+font-weight: bold;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
