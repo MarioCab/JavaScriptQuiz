@@ -10,7 +10,6 @@ var secondsLeft = 30
 var timeCard = document.getElementById("time-card")
 var finalScores = document.getElementById("scores")
 var initials = [];
-var storedInitials;
 var isEnd = false
 const questions = [
     {
@@ -77,16 +76,17 @@ startButton.addEventListener('click', startGame)
 var welcomeMessage = document.getElementById('welcomeStart')
 
 function initializeStorage(){
-    storedInitials = JSON.parse(localStorage.getItem("initials"));
-    if (storedInitials = null){
+   var storedInitials = JSON.parse(localStorage.getItem("initials"));
+    if (storedInitials == null){
         
         localStorage.setItem("initials", JSON.stringify(initials));
-
+        storedInitials = JSON.parse(localStorage.getItem("initials"));
     }
     initials = storedInitials;
 }
 
 function startGame(){
+    initializeStorage();
     console.log('started')
     startButton.classList.add('hide')
     welcomeMessage.classList.add('hide')
