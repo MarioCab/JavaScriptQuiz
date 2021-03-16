@@ -18,7 +18,7 @@ body {
     max-width: 80%;
     background-color:coral;
     border-radius: black 5px;
-    padding: 10px;
+    padding: 20px;
     box-shadow: 0 0 10px 2px;
 }
 
@@ -81,4 +81,13 @@ font-weight: bold;
 align-items: center;
 justify-content: center;
 text-align: center;
+}
+
+#scores {
+display: flex !important;
+flex-direction: column !important;
+columns: 1 !important;
+align-items: center !important;
+justify-content: center !important;
+text-align: center !important;
 }

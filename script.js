@@ -108,8 +108,10 @@ function endQuiz(){
     isEnd = true
     questionContainerEl.classList.add('hide');
     highscoreEl.classList.remove('hide');
-    initials[initials.length] = prompt("Good job! Your final score is: " + secondsLeft + ". Please enter your initials below to record your score!");
+    retryButton.classList.remove('hide');
+    initials[initials.length] = prompt("Good job! Your final score is: " + secondsLeft + ". Please enter your initials and score below to record your score!");
     localStorage.setItem("initials", JSON.stringify(initials));
+    finalScores.innerText = localStorage.initials;
 }
 
 function showQuestion(question) {
